@@ -1,3 +1,4 @@
+import 'package:clean_architecture_shop_app/features/intro/presentation/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,8 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Container(),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'NBI Shop',
+      home: SplashScreen(),
     );
   }
 }
