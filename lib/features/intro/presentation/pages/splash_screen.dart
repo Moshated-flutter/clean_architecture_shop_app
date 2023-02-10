@@ -1,4 +1,5 @@
-import 'package:clean_architecture_shop_app/features/intro/presentation/bloc/splash_cubit/cubit/connection_status.dart';
+import '../bloc/splash_cubit/cubit/connection_status.dart';
+import 'intro_main_wrapper.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../../../../core/common/widgets/custom_snack_bar.dart';
@@ -56,13 +57,14 @@ class _SplashScreenState extends State<SplashScreen> {
                   return Directionality(
                     textDirection: TextDirection.ltr,
                     child: LoadingAnimationWidget.prograssiveDots(
-                      color: Colors.red,
+                      color: Colors.green,
                       size: 50,
                     ),
                   );
                 }
                 if (state.connectionStatus is ConnectionOFF) {
                   return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text('not connected to internet'),
                       SizedBox(
@@ -95,6 +97,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Duration(seconds: 3),
       () {
         CustomSnackBar.showSnackbar(context, "you have entered", Colors.green);
+        Navigator.of(context).pushReplacementNamed(IntroMainWrapper.routeName);
       },
     );
   }
