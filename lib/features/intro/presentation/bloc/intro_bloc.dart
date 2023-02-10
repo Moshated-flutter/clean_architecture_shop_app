@@ -6,8 +6,6 @@ part 'intro_state.dart';
 
 class IntroBloc extends Bloc<IntroEvent, IntroState> {
   IntroBloc() : super(IntroInitial()) {
-    on<IntroEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<IntroEvent>((event, emit) {});
   }
 }

@@ -1,6 +1,11 @@
-import 'package:clean_architecture_shop_app/core/common/widgets/custom_snack_bar.dart';
+import 'package:clean_architecture_shop_app/features/intro/presentation/bloc/splash_cubit/cubit/connection_status.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+
+import '../../../../core/common/widgets/custom_snack_bar.dart';
+import '../bloc/splash_cubit/cubit/splash_cubit.dart';
 import 'package:delayed_widget/delayed_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,8 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
-    goToHome();
+    BlocProvider.of<SplashCubit>(context).checkconnectivity();
   }
 
   @override
@@ -40,10 +44,46 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
             ),
-            Text('not connected to internet'),
-            SizedBox(
-              height: 20,
-            )
+            BlocConsumer<SplashCubit, SplashState>(
+              listener: (context, state) {
+                if (state.connectionStatus is ConnectionON) {
+                  goToHome();
+                }
+              },
+              builder: (context, state) {
+                if (state.connectionStatus is ConnectionInit ||
+                    state.connectionStatus is ConnectionON) {
+                  return Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: LoadingAnimationWidget.prograssiveDots(
+                      color: Colors.red,
+                      size: 50,
+                    ),
+                  );
+                }
+                if (state.connectionStatus is ConnectionOFF) {
+                  return Row(
+                    children: [
+                      Text('not connected to internet'),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          BlocProvider.of<SplashCubit>(context)
+                              .checkconnectivity();
+                        },
+                        icon: Icon(
+                          Icons.autorenew,
+                        ),
+                      ),
+                    ],
+                  );
+                }
+
+                return Container();
+              },
+            ),
           ],
         ),
       ),

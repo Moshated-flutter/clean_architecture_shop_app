@@ -1,3 +1,5 @@
+import '../../../../core/common/resources/data_state.dart';
+
 abstract class SplashRepository {
-  Future<bool> checkConnectibity();
+  Future<DataState<bool>> checkConnectibity();
 }
