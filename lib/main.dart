@@ -1,7 +1,7 @@
 import 'package:clean_architecture_shop_app/core/config/theme/my_theme.dart';
 
 import 'features/intro/presentation/pages/intro_main_wrapper.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/locator/locator.dart';
 import 'features/intro/presentation/bloc/splash_cubit/cubit/splash_cubit.dart';
 import 'features/intro/presentation/pages/splash_screen.dart';
@@ -30,6 +30,16 @@ class MyApp extends StatelessWidget {
         darkTheme: MyThemes.darkTheme,
         debugShowCheckedModeBanner: false,
         title: 'NBI Shop',
+        locale: Locale('fa', ''),
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale('en', ''),
+          Locale('fa', ''),
+        ],
         initialRoute: '/',
         routes: {
           IntroMainWrapper.routeName: (context) => IntroMainWrapper(),

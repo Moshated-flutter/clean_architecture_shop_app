@@ -37,8 +37,8 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Expanded(
               child: DelayedWidget(
-                delayDuration: Duration(milliseconds: 300),
-                animationDuration: Duration(milliseconds: 2000),
+                delayDuration: const Duration(milliseconds: 300),
+                animationDuration: const Duration(milliseconds: 2000),
                 child: Image.asset(
                   'assets/images/shop_icon.png',
                   width: width * 0.8,
@@ -66,8 +66,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('not connected to internet'),
-                      SizedBox(
+                      const Text('not connected to internet'),
+                      const SizedBox(
                         height: 20,
                       ),
                       IconButton(
@@ -75,7 +75,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           BlocProvider.of<SplashCubit>(context)
                               .checkconnectivity();
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.autorenew,
                         ),
                       ),
@@ -94,7 +94,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> goToHome() {
     return Future.delayed(
-      Duration(seconds: 3),
+      const Duration(seconds: 3),
       () {
         CustomSnackBar.showSnackbar(context, "you have entered", Colors.green);
         Navigator.of(context).pushReplacementNamed(IntroMainWrapper.routeName);
