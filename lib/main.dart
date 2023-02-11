@@ -1,4 +1,5 @@
 import 'package:clean_architecture_shop_app/core/config/theme/my_theme.dart';
+import 'package:clean_architecture_shop_app/features/intro/presentation/bloc/intro_cubit/cubit/intro_cubit.dart';
 
 import 'features/intro/presentation/pages/intro_main_wrapper.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => locator<SplashCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => IntroCubit(),
         ),
       ],
       child: MaterialApp(
