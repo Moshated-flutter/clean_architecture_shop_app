@@ -34,11 +34,11 @@ dependencies:
   connectivity_plus: ^3.0.3
   cupertino_icons: ^1.0.2
   delayed_widget: ^1.1.2
+  dio: ^4.0.6
   equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
- 
   font_awesome_flutter: ^10.4.0
   get_it: ^7.2.0
   google_fonts: ^4.0.3

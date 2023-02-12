@@ -16,3 +16,7 @@ class IntroDescriptions {
   static const THIRD_SUBTITLE =
       'ثبت قطعات کمیاب و خرید و فروش عمده تنها با یک کلیک';
 }
+
+class Urls {
+  static const BASE_URL = 'https://shopbs.besenior.ir/api/v1';
+}
