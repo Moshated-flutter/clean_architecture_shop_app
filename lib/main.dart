@@ -1,3 +1,5 @@
+import 'package:clean_architecture_shop_app/core/common/presentation/bloc/bottom_nav_cubit/bottom_nav_cubit.dart';
+import 'package:clean_architecture_shop_app/core/common/presentation/screens/main_wrapper.dart';
 import 'package:clean_architecture_shop_app/core/config/theme/my_theme.dart';
 import 'package:clean_architecture_shop_app/features/intro/presentation/bloc/intro_cubit/cubit/intro_cubit.dart';
 
@@ -27,6 +29,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => IntroCubit(),
         ),
+        BlocProvider(
+          create: (context) => BottomNavCubit(),
+        ),
       ],
       child: MaterialApp(
         themeMode: ThemeMode.light,
@@ -47,6 +52,7 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           IntroMainWrapper.routeName: (context) => IntroMainWrapper(),
+          MainWrapper.routeName: (context) => MainWrapper(),
         },
         home: SplashScreen(),
       ),

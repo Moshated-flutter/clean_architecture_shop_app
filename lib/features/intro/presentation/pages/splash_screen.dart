@@ -2,7 +2,7 @@ import '../bloc/splash_cubit/cubit/connection_status.dart';
 import 'intro_main_wrapper.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-import '../../../../core/common/widgets/custom_snack_bar.dart';
+import '../../../../core/common/presentation/widgets/custom_snack_bar.dart';
 import '../bloc/splash_cubit/cubit/splash_cubit.dart';
 import 'package:delayed_widget/delayed_widget.dart';
 import 'package:flutter/material.dart';

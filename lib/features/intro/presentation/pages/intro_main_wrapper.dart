@@ -1,3 +1,4 @@
+import 'package:clean_architecture_shop_app/core/common/presentation/screens/main_wrapper.dart';
 import 'package:clean_architecture_shop_app/core/common/utils/constants.dart';
 import 'package:clean_architecture_shop_app/features/intro/presentation/bloc/intro_cubit/cubit/intro_cubit.dart';
 import 'package:clean_architecture_shop_app/features/intro/presentation/widgets/get_start_btn.dart';
@@ -90,7 +91,10 @@ class IntroMainWrapper extends StatelessWidget {
                   child: GetStartBtn(
                     text: 'شروع کنید',
                     onTap: () {
-                      // todo : go to main screen
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                        MainWrapper.routeName,
+                        (route) => false,
+                      );
                     },
                   ),
                 );
